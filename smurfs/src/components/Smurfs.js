@@ -18,7 +18,7 @@ const Smurfs = props => {
         <div>
             {props.error && <p>{props.error}</p>}
             {props.smurfs.map(smurf => (
-                <Smurf smurf={smurf}/>
+                <Smurf key={smurf.id} smurf={smurf}/>
             ))}
         </div>
     );

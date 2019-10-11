@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import {addSmurf} from '../actions';
 import { connect } from 'react-redux';
 
@@ -10,30 +9,28 @@ class Form extends React.Component {
         age: '',
         height: ''
     }
-    addSmurf = (e) => {
-        e.preventDefault();
-        const newSmurf = this.state;
-                this.addSmurf(newSmurf);
-                this.setState({
-                    name: '',
-                    age: '',
-                    height: ''
-        })
-    }
-
-    submitToForm = (e) => {
-        e.preventDefault();
-        axios.post('http://localhost:3333/smurfs', e.target.value)
-    }
-
+    
     handleInput = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     };
+
+    addNewSmurf = (e) => {
+        e.preventDefault();
+        const newSmurf = this.state
+        this.props.addSmurf(newSmurf)
+        this.setState({
+            name: '',
+            age: '',
+            height: ''
+        })
+    }
+
+    
     render() {
         return (
-            <form onSubmit={this.addSmurf}>
+            <form onSubmit={this.addNewSmurf}>
                 <div>
-                    <label for="name">Name:</label>
+                    <label htmlFor="name">Name:</label>
                     <input 
                         onChange={this.handleInput}
                         placeholder="Name"
@@ -42,7 +39,7 @@ class Form extends React.Component {
                     />
                 </div>
                 <div>
-                    <label for="age">Age:</label>
+                    <label htmlFor="age">Age:</label>
                     <input 
                         onChange={this.handleInput}
                         placeholder="Age"
@@ -51,7 +48,7 @@ class Form extends React.Component {
                     />
                 </div>
                 <div>
-                    <label for="height">Height:</label>
+                    <label htmlFor="height">Height:</label>
                     <input
                         onChange={this.handleInput}
                         placeholder="Height"
@@ -60,7 +57,7 @@ class Form extends React.Component {
                     />
                 </div>
                 <div>
-                    <button type="submit" onClick={this.submitToForm}>Add Smurf</button>
+                    <button type="submit" >Add Smurf</button>
                 </div>
             </form>
         )
@@ -68,9 +65,8 @@ class Form extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {
-        smurfs: state.smurfs
-    }
+    return {}
+
 }
 
 export default connect(

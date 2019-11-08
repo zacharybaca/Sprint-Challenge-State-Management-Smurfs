@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-image: url('./smurfs.jpg');
+  background-size: 500px;
 }
 
 .App-logo {

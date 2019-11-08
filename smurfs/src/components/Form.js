@@ -17,6 +17,10 @@ const CustomDiv = styled.div`
     padding: 50px;
 `
 
+const CustomImage = styled.img`
+    width: 100px;
+`
+
 class Form extends React.Component {
     state = {
         name: '',
@@ -43,6 +47,7 @@ class Form extends React.Component {
     render() {
         return (
             <CustomDiv>
+                <CustomImage src="https://cdn.vox-cdn.com/thumbor/MlY1bN3C1Vm_yr08FcbWkoq-U-0=/0x0:2560x1600/920x613/filters:focal(1662x443:2070x851):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/54121337/smurfscover.0.jpg" alt="smurfs" />
                 <CustomForm onSubmit={this.addNewSmurf}>
                     <div>
                         <label htmlFor="name">Name:</label>
